@@ -14,7 +14,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Telegram API Token
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8226602991:AAGsr0Xz-lUJzJdnxdcC087jXbnuqUO3tn8")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+if not BOT_TOKEN:
+    raise ValueError("BOT_TOKEN не найден в переменных окружения. Установите его в .env файле")
 
 # Каналы, на которые нужно подписаться
 CHANNELS_TO_SUBSCRIBE = [
